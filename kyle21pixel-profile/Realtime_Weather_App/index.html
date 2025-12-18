@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Realtime Weather</title>
+    <style>
+        body {
+            background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .weather-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+
+        h1 {
+            margin: 0;
+            color: #333;
+            font-size: 3rem;
+        }
+
+        p {
+            color: #666;
+            font-size: 1.2rem;
+        }
+
+        .temp {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #2d3436;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="weather-card">
+        <h1 id="city">New York</h1>
+        <p>Partly Cloudy</p>
+        <div class="temp">72°F</div>
+        <p>Humidity: 45% | Wind: 10mph</p>
+        <button onclick="updateWeather()">Refresh Location</button>
+    </div>
+
+    <script>
+        const cities = ["London", "Tokyo", "Paris", "New York", "Dubai"];
+        function updateWeather() {
+            const city = cities[Math.floor(Math.random() * cities.length)];
+            const temp = Math.floor(Math.random() * (90 - 40) + 40);
+            document.getElementById("city").innerText = city;
+            document.querySelector(".temp").innerText = temp + "°F";
+        }
+    </script>
+</body>
+
+</html>
